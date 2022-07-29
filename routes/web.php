@@ -15,6 +15,23 @@ use App\Http\Controllers\CompanyController;
 |
 */
 
+Route::get('/cls', function() {
+        $run = Artisan::call('config:clear');
+        $run = Artisan::call('cache:clear');
+        $run = Artisan::call('config:cache');
+        $run = Artisan::call('view:clear');
+        
+        Session::flush();
+        return 'FINISHED';
+    });
+Route::get('/migrate', function() {
+     Artisan::call('migrate');
+
+return 'FINISHED';
+});
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
