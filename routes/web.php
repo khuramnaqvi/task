@@ -35,6 +35,8 @@ return 'FINISHED';
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 Route::get('/task',[\App\Http\Controllers\EmployeesController::class, 'index'])->name('employee.index');
 Route::get('/create', [\App\Http\Controllers\EmployeesController::class,'create'])->name('employee.create');
 Route::post('save',[\App\Http\Controllers\EmployeesController::class,'store'])->name('save');
